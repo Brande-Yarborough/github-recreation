@@ -20,40 +20,45 @@
       <div class="repo-info"></div>
     </div>
 
-    <div class="profile-container"></div>
-    <div class="profile">
-      <script id="profile-template" type="text/x-handlebars-template">
-        <img src={{avatar_url}} class="avatar-img" alt="avatar" />
-        <h2>{{name}}</h2>
-        <p>{{login}}</p>
-        <button>Edit Profile</button>
-        <p>{{followers}}</p>
-        <p>{{following}}</p>
-        <p>{{location}}</p>
-      </script>
+    <div class="profile-container">
+      <div class="profile">
+        <script id="profile-template" type="text/x-handlebars-template">
+          <img src="{{avatar_url}}" class="avatar-img" alt="avatar" />
+          <h2>{{name}}</h2>
+          <p>{{login}}</p>
+          <button>Edit Profile</button>
+          <p>{{followers}}</p>
+          <p>{{following}}</p>
+          <p>{{location}}</p>
+          <p>{{organizations_url}}</p>
+        </script>
+      </div>
     </div>
 
     <!--Need to use for each for organizations-->
-    <div class="organizations-container"></div>
-    <div class="organizations">
-      <script id="organizations-template" type="text/x-handlebars-template">
-        {{#each organization}}
-          <h3>{{organizations}}</h3>
-          <img />
-          CCS Logo />
-        {{/each}}
-      </script>
-    </div>
+    <!-- <div class="organizations-container">
+      <div class="organizations">
+        <script id="organizations-template" type="text/x-handlebars-template">
+          {{#each data}}
+            <h3>{{organizations}}</h3>
+            <img src={{avatar_url}} />
+          {{/each}}
+        </script>
+      </div>
+    </div> -->
 
     <div class="repo-container">
       <div class="repo w-75">
-        <!-- <script id="repo-template" type="text/x-handlebars-template"> -->
-        <div class="card-body">
-          <h3 class="card-title">Repo title</h3>
-          <p class="card-text">Public</p>
-          <p class="language">HTML</p>
-          <p class="updated">Updated</p>
-        </div>
+        <script id="repo-template" type="text/x-handlebars-template">
+          {{#each data}}
+            <div class="card-body">
+              <h3 class="card-title">{{name}}</h3>
+              <p class="card-text">Public</p>
+              <p class="language">HTML</p>
+              <p class="updated">Updated</p>
+            </div>
+          {{/each}}
+        </script>
       </div>
     </div>
 
