@@ -7,7 +7,9 @@ function generateHTML(data) {
 
   const html = template(data);
 
-  document.querySelector(".github-info").insertAdjacentHTML("afterbegin", html);
+  document
+    .querySelector(".profile-info")
+    .insertAdjacentHTML("afterbegin", html);
 }
 
 function generateOrganizations(data) {
@@ -17,7 +19,19 @@ function generateOrganizations(data) {
 
   const html = template(data);
 
-  document.querySelector(".github-info").insertAdjacentHTML("afterbegin", html);
+  document
+    .querySelector(".organization-info")
+    .insertAdjacentHTML("afterbegin", html);
+}
+
+function generateRepo(data) {
+  console.log(data);
+  const source = document.querySelector("#repo-template").innerHTML;
+  const template = Handlebars.compile(source);
+
+  const html = template(data);
+
+  document.querySelector(".repo-info").insertAdjacentHTML("afterbegin", html);
 }
 
 fetch(`${BASE_URL}`)
