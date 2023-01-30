@@ -2,7 +2,7 @@ const BASE_URL = "https://api.github.com/users/brande-yarborough";
 const organizations_url = "https://api.github.com/users/Brande-Yarborough/orgs";
 const repos_url = "https://api.github.com/users/Brande-Yarborough/repos";
 
-function generateHTML(data) {
+function generateProfileHTML(data) {
   //   console.log(data); //can be sure data call works
   const source = document.querySelector("#profile-template").innerHTML;
   const template = Handlebars.compile(source);
@@ -41,7 +41,7 @@ fetch(`${BASE_URL}`)
     return response.json();
   })
   .then(function (data) {
-    generateHTML(data); //actual value that we get back
+    generateProfileHTML(data); //actual value that we get back
     console.log("USER DATA", data);
   });
 
@@ -50,7 +50,7 @@ fetch(`${organizations_url}`)
     return response.json();
   })
   .then(function (data) {
-    generateHTML(data); //actual value that we get back
+    generateOrgsHTML(data); //actual value that we get back
     console.log("ORGANIZATION DATA", data);
   });
 
@@ -59,6 +59,6 @@ fetch(`${repos_url}`)
     return response.json();
   })
   .then(function (data) {
-    generateHTML(data); //actual value that we get back
+    generateReposHTML(data); //actual value that we get back
     console.log("BASE DATA", data);
   });

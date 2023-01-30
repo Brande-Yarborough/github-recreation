@@ -13,11 +13,13 @@
   </head>
   <body>
     <div class="container">
-      <div class="row github-info"></div>
-      <!--do I need this here?-->
-      <div class="profile-info"></div>
-      <div class="organization-info"></div>
-      <div class="repo-info"></div>
+      <div class="row">
+        <aside class="col-12 col-md-4">
+          <section class="profile-info"></section>
+          <section class="organization-info"></section>
+        </aside>
+        <main class="col-12 col-md-8 repo-info"></main>
+      </div>
     </div>
 
     <div class="profile-container">
@@ -48,13 +50,13 @@
     </div> -->
 
     <div class="repo-container">
-      <div class="repo w-75">
+      <div class="repos w-75">
         <script id="repo-template" type="text/x-handlebars-template">
           {{#each data}}
             <div class="card-body">
               <h3 class="card-title">{{name}}</h3>
-              <p class="card-text">Public</p>
-              <p class="language">HTML</p>
+              <p class="card-text">{{private}}</p>
+              <p class="language">{{language}}</p>
               <p class="updated">Updated</p>
             </div>
           {{/each}}
