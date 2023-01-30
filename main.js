@@ -31,7 +31,7 @@ function generateRepo(data) {
   const source = document.querySelector("#repo-template").innerHTML;
   const template = Handlebars.compile(source);
 
-  const html = template({ data });
+  const html = template({ repos: data });
 
   document.querySelector(".repo-info").insertAdjacentHTML("afterend", html);
 }
@@ -45,20 +45,20 @@ fetch(`${BASE_URL}`)
     console.log("USER DATA", data);
   });
 
-fetch(`${organizations_url}`)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    generateOrgsHTML(data); //actual value that we get back
-    console.log("ORGANIZATION DATA", data);
-  });
+// fetch(`${organizations_url}`)
+//   .then(function (response) {
+//     return response.json();
+//   })
+//   .then(function (data) {
+//     generateOrgs(data); //actual value that we get back
+//     console.log("ORGANIZATION DATA", data);
+//   });
 
 fetch(`${repos_url}`)
   .then(function (response) {
     return response.json();
   })
   .then(function (data) {
-    generateReposHTML(data); //actual value that we get back
+    generateRepo(data); //actual value that we get back
     console.log("BASE DATA", data);
   });
