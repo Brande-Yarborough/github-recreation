@@ -14,17 +14,17 @@ function generateProfileHTML(data) {
     .insertAdjacentHTML("afterbegin", html);
 }
 
-// function generateOrganizations(data) {
-//   //   console.log(data); //can be sure data call works
-//   const source = document.querySelector("#organizations-template").innerHTML;
-//   const template = Handlebars.compile(source);
+function generateOrgs(data) {
+  //   console.log(data); //can be sure data call works
+  const source = document.querySelector("#organizations-template").innerHTML;
+  const template = Handlebars.compile(source);
 
-//   const html = template(data);
+  const html = template({ organizations: data });
 
-//   document
-//     .querySelector(".organization-info")
-//     .insertAdjacentHTML("afterbegin", html);
-// }
+  document
+    .querySelector(".organization-info")
+    .insertAdjacentHTML("afterbegin", html);
+}
 
 function generateRepo(data) {
   console.log(data);
@@ -33,7 +33,7 @@ function generateRepo(data) {
 
   const html = template({ repos: data });
 
-  document.querySelector(".repo-info").insertAdjacentHTML("afterend", html);
+  document.querySelector(".repo-info").insertAdjacentHTML("afterbegin", html);
 }
 
 fetch(`${BASE_URL}`)
@@ -45,14 +45,14 @@ fetch(`${BASE_URL}`)
     console.log("USER DATA", data);
   });
 
-// fetch(`${organizations_url}`)
-//   .then(function (response) {
-//     return response.json();
-//   })
-//   .then(function (data) {
-//     generateOrgs(data); //actual value that we get back
-//     console.log("ORGANIZATION DATA", data);
-//   });
+fetch(`${organizations_url}`)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    generateOrgs(data); //actual value that we get back
+    console.log("ORGANIZATION DATA", data);
+  });
 
 fetch(`${repos_url}`)
   .then(function (response) {

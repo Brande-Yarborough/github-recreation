@@ -1,9 +1,45 @@
-img {
+html {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.profile-image {
   border-radius: 50%;
-  width: 25%;
-  height: 25%;
-  margin-top: 125px;
+  width: 75%;
+  height: 50%;
+  margin-top: 50px;
+  margin-bottom: 15px;
   border: solid 2px grey;
+}
+
+button {
+  padding: 5px 15px 5px 15px;
+  display: block;
+  width: 75%;
+  text-align: center;
+  font-size: 14px;
+  background-color: #f6f8fa;
+  border: solid 1px grey;
+  border-radius: 5px;
+  border-color: rgb(28 32 37 / 15%);
+}
+
+.followers,
+.following {
+  display: inline-block;
+}
+
+.location {
+  border-bottom: solid 1px lightgrey;
+  padding-bottom: 25px;
+}
+
+.organization-icon {
+  width: 25%;
+}
+
+.card-title {
+  margin-top: 150px;
 }
 
 /* body {
@@ -11,9 +47,10 @@ img {
   color: white;
 } */
 
-/* .repo-container {
-  float: right;
-} */
+.repo-container {
+  display: flex;
+  flex-direction: column;
+}
 
 /* .card {
   background-color: black;
