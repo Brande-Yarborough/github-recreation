@@ -1,3 +1,5 @@
+@import "language.css";
+
 html {
   box-sizing: border-box;
   height: 100%;
@@ -34,12 +36,13 @@ button {
   padding-bottom: 25px;
 }
 
-.organization-icon {
-  width: 25%;
+h4 {
+  font-size: 16px;
 }
 
-.card-title {
-  margin-top: 150px;
+.organization-icon {
+  width: 30px;
+  height: 30px;
 }
 
 /* body {
@@ -47,9 +50,45 @@ button {
   color: white;
 } */
 
+#repo-container {
+  padding-top: 150px;
+}
+
 .repo-container {
   display: flex;
   flex-direction: column;
+}
+
+.card-body {
+  border-top: solid 1px lightgrey;
+  border-bottom: solid 1px lightgrey;
+}
+
+span {
+  font-size: 12px;
+  color: #8b949e;
+  border: solid 1px #8b949e;
+  border-radius: 15px;
+  padding: 3px 5px;
+  margin: 15px;
+}
+
+/* .language::before {
+  color: blue;
+  content: circle;
+  border-radius: 50%;
+  height: 25%;
+  width: 25%;
+  background-color: blue;
+} */
+
+.language::before {
+  content: "◯";
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+
+  background-color: red;
 }
 
 /* .card {
